@@ -5,14 +5,10 @@ module.exports = async function (context, req) {
   context.log("Get Missed Todos function.");
 
   connectDB();
-//   $where: function () {
-//     return this.missed == true
-//   },
-  await TodoModel.find({
-    $where: function () {
-      return this.missed == true
-    },
-  })
+  //   $where: function () {
+  //     return this.missed == true
+  //   },
+  await TodoModel.find({ missed: true })
     .then((x) => {
       if (!x) {
         context.res.status(200).json([]);

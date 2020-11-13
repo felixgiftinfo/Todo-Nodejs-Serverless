@@ -5,12 +5,8 @@ module.exports = async function (context, req) {
   context.log("Get Completed Todos function.");
 
   connectDB();
-  
-  await TodoModel.find({
-    $where: function () {
-      return this.completed == true
-    },
-  })
+
+  await TodoModel.find({ completed: true })
     .then((x) => {
       if (!x) {
         context.res.status(200).json([]);

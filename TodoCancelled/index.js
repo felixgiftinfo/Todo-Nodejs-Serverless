@@ -5,11 +5,7 @@ module.exports = async function (context, req) {
   context.log("Get Cancelled Todos function.");
 
   connectDB();
-  await TodoModel.find({
-    $where: function () {
-      return this.cancelled == true
-    },
-  })
+  await TodoModel.find({ cancelled: true })
     .then((x) => {
       if (!x) {
         context.res.status(200).json([]);
