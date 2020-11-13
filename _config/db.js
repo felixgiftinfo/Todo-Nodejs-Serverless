@@ -13,9 +13,7 @@ const mongoose = require("mongoose");
 
 
 const connectDB = async () => {
-//let MongoURL=process.env.LOCAL_CONNECTION_STRING;
-let MongoURL="mongodb://gift:s4DlvGiPqlKuCu1R@cluster0-shard-00-00.qwh5f.mongodb.net:27017,cluster0-shard-00-01.qwh5f.mongodb.net:27017,cluster0-shard-00-02.qwh5f.mongodb.net:27017/AzureDB?ssl=true&replicaSet=atlas-lc221h-shard-0&authSource=admin&retryWrites=true&w=majority";
-
+let MongoURL=process.env.REMOTE_CONNECTION_STRING;
     try {
       const conn = await mongoose.connect(MongoURL, {
         useNewUrlParser: true,
