@@ -1,5 +1,5 @@
 const connectDB = require("../_config/db");
-const { getVerb, updateVerb, insertVerb, removeVerb } = require("./handlers");
+const { getVerb,getIdVerb, updateVerb, insertVerb, removeVerb } = require("./handlers");
 
 module.exports = async function (context, req) {
   context.log("Todo function processed a request.");
@@ -9,7 +9,7 @@ module.exports = async function (context, req) {
   switch (method) {
     case "get":
       if (!context.bindingData.id) await getVerb.get(context, req);
-      else await getVerb.getById(context, req);
+      else await getIdVerb.getById(context, req);
       break;
     case "post":
       await insertVerb.insert(context, req);
