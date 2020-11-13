@@ -1,6 +1,6 @@
 const TodoModel = require("../../_config/models/todo.model");
 
-async function update(context) {
+async function update(context, req) {
   context.log("Update Todo function.");
   let id = context.bindingData.id;
   let newModel = context.req.body;

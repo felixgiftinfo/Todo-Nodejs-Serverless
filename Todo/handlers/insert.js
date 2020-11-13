@@ -2,7 +2,7 @@ const TodoModel = require("../../_config/models/todo.model");
 const { v4: uuidv4 } = require("uuid");
 
 
-async function insert(context) {
+async function insert(context, req) {
   context.log("Insert Todo function.");
 
   let newModel = new TodoModel(context.req.body);

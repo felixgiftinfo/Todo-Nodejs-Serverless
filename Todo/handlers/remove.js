@@ -2,7 +2,7 @@ const TodoModel = require("../../_config/models/todo.model");
 
 
 
-async function remove(context) {
+async function remove(context, req) {
   context.log("Delete Todo function.");
 
   let id = context.bindingData.id;
