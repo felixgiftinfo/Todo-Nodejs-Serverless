@@ -13,6 +13,7 @@ module.exports = async function (context, req) {
   } else {
     let newModel = { completed: true, cancelled: false, missed: false };
 
+    let id = context.bindingData.id;
     await TodoModel.updateOne({ _id: id }, { $set: newModel })
       .then((x) => {
         if (x.n == 0) {
