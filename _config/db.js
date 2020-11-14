@@ -10,8 +10,6 @@ const mongoose = require("mongoose");
 // .catch(err=> console.log(err));
 
 const connectDB = async () => {
-  console.log('process.env');
-  console.log(process.env);
 
   let mongoURL = process.env.CUSTOMCONNSTR_REMOTE_CONNECTION_STRING;
   if (process.env.CUSTOMCONNSTR_MODE == "development") {

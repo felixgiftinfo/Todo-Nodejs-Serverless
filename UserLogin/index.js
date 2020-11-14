@@ -18,8 +18,6 @@ module.exports = async function (context, req) {
     context.res.status(401).json({ error: errors });
   } else {
     let email = req.body.email;
-    console.log("email");
-    console.log(email);
 
     await UserModel.findOne({ email: email })
       .then((user) => {
