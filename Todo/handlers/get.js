@@ -4,7 +4,7 @@ const ValidationMiddleware = require("../../_config/passport-strategy/middleware
 
 exports.get = async function (context, req) {
   context.log("Get Todo function.");
-  const errors = null; //ValidationMiddleware.validJWTNeeded(req, context.res);
+  const errors = ValidationMiddleware.validJWTNeeded(req, context.res);
   if (errors) {
     context.res.status(401).json({ error: errors });
   } else {
