@@ -10,11 +10,11 @@ const mongoose = require("mongoose");
 // .catch(err=> console.log(err));
 
 const connectDB = async () => {
-  let mongoURL = process.env.REMOTE_CONNECTION_STRING;
-  if (process.env.MODE == "production") {
-    mongoURL = process.env.LOCAL_CONNECTION_STRING;
+  let mongoURL = process.env.CUSTOMCONNSTR_REMOTE_CONNECTION_STRING;
+  if (process.env.CUSTOMCONNSTR_MODE == "development") {
+    mongoURL = process.env.CUSTOMCONNSTR_LOCAL_CONNECTION_STRING;
   }
-  
+
   try {
     const conn = await mongoose.connect(mongoURL, {
       useNewUrlParser: true,
