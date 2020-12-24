@@ -4,7 +4,7 @@ const TodoModel = require("../_config/models/todo.model");
 module.exports = async function (context, req) {
   context.log("Get Cancelled Todos function.");
 
-  connectDB();
+  //connectDB();
   await TodoModel.find({ cancelled: true })
     .then((x) => {
       if (!x) {

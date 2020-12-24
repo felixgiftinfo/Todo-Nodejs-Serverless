@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 //console.log(__dirname)
-const pathToKey = path.join(__dirname, "..", "id_rsa_priv.pem");
+const pathToKey = path.join(__dirname, "../secrets", "id_rsa_priv.pem");
 const PRIV_KEY = fs.readFileSync(pathToKey, "utf8");
 const PUB_KEY = fs.readFileSync(pathToKey, "utf8");
 
@@ -63,6 +63,7 @@ function issueJWT(user) {
     sub: _id,
     userId: _id,
     iat: Date.now(),
+    email:user.email
   };
 
   const signedToken = jwt.sign(payload, PRIV_KEY, {

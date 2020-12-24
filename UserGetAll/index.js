@@ -6,7 +6,7 @@ const ValidationMiddleware = require("../_config/passport-strategy/middlewares/a
 module.exports = async function (context, req) {
   context.log("Get Users function.");
 
-  connectDB();
+ // connectDB();
   const errors = ValidationMiddleware.validJWTNeeded(req, context.res);
   if (errors) {
     context.res.status(401).json({ error: errors });

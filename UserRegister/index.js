@@ -7,7 +7,7 @@ const VerifyUserMiddleware = require("../_config/passport-strategy/middlewares/v
 module.exports = async function (context, req) {
   context.log("Register User function.");
 
-  connectDB();
+  //connectDB();
 
   let email = req.body.email;
   await UserModel.findOne({ email: email })

@@ -5,7 +5,7 @@ const ValidationMiddleware = require("../_config/passport-strategy/middlewares/a
 module.exports = async function (context, req) {
   context.log("Update Todo to Cancelled function.");
 
-  connectDB();
+  //connectDB();
 
   const errors = ValidationMiddleware.validJWTNeeded(req, context.res);
   if (errors) {

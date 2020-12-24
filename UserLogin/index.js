@@ -2,15 +2,13 @@ const connectDB = require("../_config/db");
 const UserModel = require("../_config/models/user.model");
 const utils = require("../_config/passport-strategy/utils");
 const VerifyUserMiddleware = require("../_config/passport-strategy/middlewares/verify.user.middleware");
-const { check, validationResult } = require("express-validator");
-//const passport = require("passport");
+connectDB();
+
 
 module.exports = async function (context, req) {
   context.log("Login User function.");
 
-  connectDB();
-  // require("../_config/passport-strategy/passport")(passport);
-  // passport.initialize();
+  
 
   const errors = VerifyUserMiddleware.is_Login_Fields_Valid(req, context.res);
   //const errors = validationResult(req);
